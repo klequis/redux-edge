@@ -1,0 +1,20 @@
+const WU_KEY = "8e038883d8fbbe15";
+
+http://api.wunderground.com/api/8e038883d8fbbe15/geolookup/conditions/forecast/q/Australia/Sydney.json
+
+
+http://api.wunderground.com/api/8e038883d8fbbe15/forecast/geolookup/conditions/q/CA/San_Francisco.json
+
+const weatherURL = 'http://api.wunderground.com/api/8e038883d8fbbe15/forecast/geolookup/conditions/q/CA/San_Francisco.json';
+
+
+  let state = "CA";
+  // http://api.wunderground.com/api/8e038883d8fbbe15/conditions/q/hicksville.json
+  url = "http://api.wunderground.com/api/8e038883d8fbbe15";
+  url += "/conditions/q/"
+  url += state;
+  url += "/" + city + ".json";
+  console.log("> url=" + url);
+  return url;
+}
+
