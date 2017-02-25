@@ -1,8 +1,8 @@
 import api from '../api';
 import { v4 } from 'uuid';
 import * as ku from '../lib/ke-utils';
-const logFun = false;
-const logLog = false;
+const logFun = true;
+const logLog = true;
 
 export const noop = (explanation) => ({
   type: 'app/noop',
