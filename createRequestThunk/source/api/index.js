@@ -1,11 +1,6 @@
 import 'isomorphic-fetch';
 import { normalize, Schema, arrayOf } from 'normalizr';
-import * as ku from '../lib/ke-utils';
 const notes = new Schema('notes');
-const APP_ID = 'cd605b9a7b8b517b82492ee7bf47a295';
-const units = 'metric';
-const weatherURLRoot = 'http://api.openweathermap.org/data/2.5/weather?';
-const forecastURLRoot = 'http://api.openweathermap.org/data/2.5/forecast?';
 
 export const rejectErrors = (res) => {
   const { status } = res;
@@ -15,14 +10,22 @@ export const rejectErrors = (res) => {
   return Promise.reject({ message: res.statusText });
 };
 
-export const fetchJson = (url) => (
-  fetch(url)
+export const fetchJson = (url, options = {}) => (
+  fetch(url, {
+    ...options,
+    headers: {
+      ...options.headers,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+  })
   .then(rejectErrors)
   .then((res) => res.json())
 );
 
 export default {
   notes: {
+
     readList() {
       return fetchJson('/api/notes')
         .then((data) => {
@@ -43,14 +46,14 @@ export default {
       );
     },
 
-// `/api/notes/${id}`,
-    getWeather(id) {
-      ku.log('id', id);
-      const url = `${weatherURLRoot}q=${id},us&units=${units}&APPID=${APP_ID}`;
-      return fetchJson(url)
-      .then((data) => {
-        ku.log('data', data);
-      });
+    update(id, content) {
+      return fetchJson(
+        `/api/notes/${id}`,
+        {
+          method: 'PUT',
+          body: JSON.stringify({ content }),
+        }
+      );
     },
 
     delete(id) {
