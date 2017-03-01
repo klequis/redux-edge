@@ -1,6 +1,8 @@
 import api from '../api';
 import { v4 } from 'uuid';
 import * as ku from '../../lib/ke-utils';
+const logFun = false;
+const logLog = false;
 
 export const setToast = (message, level = 'info', id = v4() ) => ({
   type: 'app/setToast',
@@ -39,13 +41,13 @@ export const createRequestThunk = ({ request, key, start = [], success = [], fai
     success,
     failure,
   };
-  ku.log('createRequestThunk', o, 'red');
+  logLog && ku.log('createRequestThunk', o, 'red');
 
   return (...args) => (dispatch) => {
 
     // if key is a function pass it args else key
     const requestKey = (typeof key === 'function') ? key(...args) : key;
-    ku.log('requestKey', requestKey);
+    logLog && ku.log('requestKey', requestKey);
 
     start.forEach((actionCreator) => dispatch(actionCreator()));
     dispatch(markRequestPending(requestKey));

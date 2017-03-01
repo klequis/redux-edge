@@ -1,3 +1,57 @@
+/*
+const styles = [
+  'background: linear-gradient(#D33106, #571402)',
+  'border: 1px solid #3E0E02',
+  'color: white',
+  'display: block',
+  'text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3)',
+  'box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 5px 3px -5px rgba(0, 0, 0, 0.5), 0 -13px 5px -10px rgba(255, 255, 255, 0.4) inset',
+  'line-height: 40px',
+  'text-align: center',
+  'font-weight: bold',
+].join(';');
+*/
+
+const styleFun = [
+  'border: 1px solid #3E0E02',
+  'color: white',
+  'text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3)',
+  'box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 2px 3px -5px rgba(0, 0, 0, 0.5), 0 -13px 2px -10px rgba(255, 255, 255, 0.4) inset',
+  'line-height: 10px',
+  'text-align: center',
+  'font-weight: bold',
+].join(';');
+
+const styleLog = [
+  'border: 1px solid #3E0E02',
+  'color: #00ced1',
+  'text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3)',
+  'box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 2px 3px -5px rgba(0, 0, 0, 0.5), 0 -13px 2px -10px rgba(255, 255, 255, 0.4) inset',
+  'line-height: 10px',
+  'text-align: center',
+  'font-weight: bold',
+].join(';');
+
+const styleLogRed = [
+  'border: 1px solid #3E0E02',
+  'color: red',
+  'text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3)',
+  'box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 2px 3px -5px rgba(0, 0, 0, 0.5), 0 -13px 2px -10px rgba(255, 255, 255, 0.4) inset',
+  'line-height: 10px',
+  'text-align: center',
+  'font-weight: bold',
+].join(';');
+
+const styleFunRed = [
+  'border: 1px solid #3E0E02',
+  'color: red',
+  'text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3)',
+  'box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 2px 3px -5px rgba(0, 0, 0, 0.5), 0 -13px 2px -10px rgba(255, 255, 255, 0.4) inset',
+  'line-height: 10px',
+  'text-align: center',
+  'font-weight: bold',
+].join(';');
+
 module.exports = {
 
   p(text) {
@@ -29,9 +83,9 @@ module.exports = {
   },
 
   whead(text, level) {
-    let val = level ? level : 1;
-    let h = document.createElement("h" + val);
-    let t = document.createTextNode(text);
+    const val = level ? level : 1;
+    const h = document.createElement("h" + val);
+    const t = document.createTextNode(text);
     h.appendChild(t);
     document.body.appendChild(h);
   },
@@ -42,40 +96,37 @@ module.exports = {
   },
 
   pre(text) {
-    let str;
-    str = "<pre>" + text + "</pre>";
+    const str = "<pre>" + text + "</pre>";
     document.write(str);
   },
 
-  log(name, value = '', color = 'normal') {
-    console.log(value);
-    let logIt;
-    if (typeof value === 'object') {
-      if (value.hasOwnProperty('type')) {
-        if (!value.type.substring(0, 2) === '@@') {
-          console.log('logIt', true);
-          logIt = true;
-        } else {
-          console.log('logIt', false);
-          logIt = false;
-        }
-      }
+  log(name, value = '', color = '') {
+    let useColor;
+    switch (color) {
+      case '':
+        useColor = styleLog;
+        break;
+      case 'red':
+      default:
+        useColor = styleLogRed;
     }
-    if (logIt) {
-      switch (color) {
-        case 'red':
-          color = 'red';
-          break;
-        default:
-          color = '#ADD8E6';
-      }
-      let message = `%c[LOG] ${name}`;
-      let colorString = `background: #222; color: ${color}`;
-      // console.log(message, colorString, value);
-    }
+    const message = `%c[log] ${name}`;
+    //eslint-disable-next-line no-console
+    console.log(message, useColor, value);
   },
 
-  logFunction(name) {
-    // console.log("%c[FUN] " + name + "()", "background: #222; color: green");
+  logFunction(name, color = '') {
+    let useColor;
+    switch (color) {
+      case '':
+        useColor = styleFun;
+        break;
+      case 'red':
+      default:
+        useColor = styleFunRed;
+    }
+
+    //eslint-disable-next-line no-console
+    console.log(`%c[FUN] ${name}()`, useColor);
   },
 };

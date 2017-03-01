@@ -1,6 +1,9 @@
 import 'isomorphic-fetch';
 import { normalize, schema, arrayOf } from 'normalizr';
 import * as ku from '../../lib/ke-utils';
+const logFun = false;
+const logLog = false;
+
 const weatherURL = 'http://api.wunderground.com/api/8e038883d8fbbe15/forecast/geolookup/conditions/q/CA/';
 // San_Francisco.json';
 
@@ -23,10 +26,10 @@ export const fetchJson = (url, options = {}) => (
 export default {
   days: {
     readList({ location }) {
-      ku.logFunction('readList');
-      ku.log('location', location, 'red');
+      logFun && ku.logFunction('readList');
+      logLog && ku.log('location', location, 'red');
       const url = `${weatherURL}${location}.json`;
-      ku.log('url', url, 'red');
+      logLog && ku.log('url', url, 'red');
       return fetchJson(hardURL)
         .then((data) => {
           const o = {
@@ -61,7 +64,7 @@ export default {
             location: data.current_observation.display_location,
             days: data.forecast.simpleforecast.forecastday,
           };
-          ku.log('readList.returned-data', o, 'red');
+          logLog && ku.log('readList.returned-data', o, 'red');
           return o;
         });
     },

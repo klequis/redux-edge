@@ -1,3 +1,4 @@
+// Not sure if it is needed any more
 import React from 'react';
 import { PropTypes } from 'react';
 import { connect } from 'react-redux';

@@ -1,15 +1,17 @@
 import { combineReducers } from 'redux';
 import { merge } from 'ramda';
 import * as ku from '../../lib/ke-utils';
+const logFun = false;
+const logLog = false;
 
 export const branding = (state = {}, { type, payload }) => {
-  ku.logFunction('reducer.branding');
+  logFun && ku.logFunction('reducer.branding');
   const o = {
     state,
     type,
     payload,
   };
-  ku.log('branding.params', o);
+  logLog && ku.log('branding.params', o);
 
   switch (type) {
     case 'app/replaceWeather':
@@ -20,13 +22,13 @@ export const branding = (state = {}, { type, payload }) => {
 };
 
 export const days = (state = {}, { type, payload }) => {
-  ku.logFunction('reducer.days');
+  logFun && ku.logFunction('reducer.days');
   const o = {
     state,
     type,
     payload,
   };
-  ku.log('days.params', o);
+  logLog && ku.log('days.params', o);
   switch (type) {
     case 'app/replaceWeather':
       return payload.days;
@@ -36,13 +38,13 @@ export const days = (state = {}, { type, payload }) => {
 };
 
 export const location = (state = {}, { type, payload }) => {
-  ku.logFunction('reducer.location');
+  logFun && ku.logFunction('reducer.location');
   const o = {
     state,
     type,
     payload,
   };
-  ku.log('location.params', o);
+  logLog && ku.log('location.params', o);
   switch (type) {
     case 'app/replaceWeather':
       return payload.location;
@@ -52,13 +54,13 @@ export const location = (state = {}, { type, payload }) => {
 };
 
 export const currentObservation = (state = {}, { type, payload }) => {
-  ku.logFunction('reducer.currentObservation');
+  logFun && ku.logFunction('reducer.currentObservation');
   const o = {
     state,
     type,
     payload,
   };
-  ku.log('currentObservation.params', o);
+  logLog && ku.log('currentObservation.params', o);
   switch (type) {
     case 'app/replaceWeather':
       return payload.current_observation;

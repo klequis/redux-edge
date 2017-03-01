@@ -16,6 +16,7 @@ class App extends Component {
   render() {
     const { readWeatherRequest } = this.props; // reports success or failure
          // readWeatherRequest is a prop based on a selctor
+    ku.log('status', readWeatherRequest.status, 'red');
     switch (readWeatherRequest.status) {
       case 'success':
         return (
