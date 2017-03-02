@@ -11,6 +11,7 @@ export const getCurrentObservation = (state) =>
 
 export const getLocation = (state) =>
   state.weather.location;
+
 export const getToast = (state) =>
   state.ui.toast;
 

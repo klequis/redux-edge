@@ -14,9 +14,10 @@ class App extends Component {
   }
 
   render() {
+    // ku.log('props', this.props, 'red');
     const { readWeatherRequest } = this.props; // reports success or failure
          // readWeatherRequest is a prop based on a selctor
-    ku.log('status', readWeatherRequest.status, 'red');
+    // ku.log('status', readWeatherRequest, 'red');
     switch (readWeatherRequest.status) {
       case 'success':
         return (
@@ -54,7 +55,7 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  readWeatherRequest: selectors.getRequest(state, 'readWeather'),
+  readWeatherRequest: selectors.getRequest(state, 'readWeather/livermore'),
 });
 
 export default connect(mapStateToProps, actionCreators)(App);

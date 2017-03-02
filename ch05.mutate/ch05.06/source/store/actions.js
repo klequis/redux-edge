@@ -78,6 +78,13 @@ export const requestReadWeather = createRequestThunk({
   ],
 });
 
+export const setCity = (city) => ({
+  type: 'app/setCity',
+  payload: {
+    location,
+  },
+});
+
 /* you wind-up with a promise
 export const requestReadWeather = (location) => {
   return () => createRequestThunk({
