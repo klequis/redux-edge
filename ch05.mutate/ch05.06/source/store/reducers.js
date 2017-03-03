@@ -82,8 +82,8 @@ export const toast = (state = null, { type, payload }) => {
 
 export const city = (state = null, { type, payload }) => {
   switch (type) {
-    case 'app/uiLocation':
-      return payload.location;
+    case 'app/updateCity':
+      return payload.city;
     default:
       return state;
   }

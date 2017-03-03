@@ -71,17 +71,17 @@ export const replaceWeather = (weather) => ({
 /* the original one that works */
 export const requestReadWeather = createRequestThunk({
   request: api.days.readList,
-  key: (location) => `readWeather/${location}`,
+  key: 'readWeather',
   success: [
     replaceWeather,
     (weather) => replaceWeather(weather),
   ],
 });
 
-export const setCity = (city) => ({
-  type: 'app/setCity',
+export const updateCity = (city) => ({
+  type: 'app/updateCity',
   payload: {
-    location,
+    city,
   },
 });
 

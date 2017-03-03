@@ -1,17 +1,30 @@
 import React from 'react';
 import { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions';
+import * as selectors from '../../store/selectors';
 import * as style from './style';
 
-const Nav = ({ uiLocation }) => {
+const Nav = ({ city, updateCity }) => {
   return (
     <div style={style.wrapper}>
+      <p>city: {city}</p>
       <input
         placeholder="enter city"
-        onChange={(event) => uiLocation(event.target.value)}
+        onChange={(event) => updateCity(event.target.value)}
         />
-      <button>Go</button>
+      <button
+
+        >Go</button>
     </div>
   );
 };
 
-export default Nav;
+const mapStateToProps = (state) => {
+  // const city = selectors.getCity(state);
+  return {
+    city: selectors.getCity(state),
+  };
+};
+
+export default connect(mapStateToProps, actionCreators)(Nav);

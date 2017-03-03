@@ -15,6 +15,9 @@ export const getLocation = (state) =>
 export const getToast = (state) =>
   state.ui.toast;
 
+export const getCity = (state) =>
+  state.ui.city;
+
 export const getRequest = (state, key) => {
   ku.logFunction('getRequest');
   ku.log('state', state);
@@ -29,3 +32,6 @@ export const areRequestsPending = (requests) => {
   return Object.keys(requests)
     .some((key) => requests[key].status === 'pending');
 };
+
+export const getCurrentConditions = (state) =>
+  state.currentObservation;

@@ -25,11 +25,12 @@ export const fetchJson = (url, options = {}) => (
 
 export default {
   days: {
-    readList({ location }) {
+    readList() {
       logFun && ku.logFunction('readList');
-      logLog && ku.log('location', location, 'red');
-      const url = `${weatherURL}${location}.json`;
-      logLog && ku.log('url', url, 'red');
+
+      // logLog && ku.log('location', location, 'red');
+      // const url = `${weatherURL}${location}.json`;
+      // logLog && ku.log('url', url, 'red');
       return fetchJson(hardURL)
         .then((data) => {
           const o = {
