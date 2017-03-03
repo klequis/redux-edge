@@ -32,6 +32,3 @@ export const areRequestsPending = (requests) => {
   return Object.keys(requests)
     .some((key) => requests[key].status === 'pending');
 };
-
-export const getCurrentConditions = (state) =>
-  state.currentObservation;
