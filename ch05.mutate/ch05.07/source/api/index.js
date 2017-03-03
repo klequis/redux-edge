@@ -3,7 +3,7 @@ import { normalize, schema, arrayOf } from 'normalizr';
 import * as ku from '../../lib/ke-utils';
 const logFun = false;
 const logLog = false;
-import localData from './localData';
+import data from './localData';
 
 const weatherURL = 'http://api.wunderground.com/api/8e038883d8fbbe15/forecast/geolookup/conditions/q/CA/';
 // San_Francisco.json';
@@ -28,9 +28,25 @@ export default {
   days: {
     readList() {
       logFun && ku.logFunction('readList');
-      return localData;
+      return new Promise(
+        function(resolve, reject) {
+          if (data) {
+            resolve(data);
+          } else {
+            let err = new Error('could not get data');
+            reject(err);
+          }
+        }
+      )
+    },
+  },
+};
 
-      /*
+/*
+export default {
+  days: {
+    readList() {
+      logFun && ku.logFunction('readList');
       // logLog && ku.log('location', location, 'red');
       // const url = `${weatherURL}${location}.json`;
       // logLog && ku.log('url', url, 'red');
@@ -71,8 +87,8 @@ export default {
           logLog && ku.log('readList.returned-data', o, 'red');
           return o;
         });
-        */
-
     },
   },
 };
+
+*/
