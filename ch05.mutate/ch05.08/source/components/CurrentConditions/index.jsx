@@ -5,12 +5,11 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions';
 import * as selectors from '../../store/selectors';
 import * as style from './style';
-import Day from '../Day';
 
-const CurrentConditions = ({ currentObservation }) => {
+const CurrentConditions = ({ currentObservation, location }) => {
   return (
     <div>
-    <h1>Current Conditions</h1>
+      <h1>Current Conditions</h1>
       <p>city: {location.city}</p>
       <p>temp_c: {currentObservation.temp_c}</p>
       <p>temp_f: {currentObservation.temp_f}</p>
@@ -21,6 +20,7 @@ const CurrentConditions = ({ currentObservation }) => {
 const mapStateToProps = (state) => {
   return {
     currentObservation: selectors.getCurrentObservation(state),
+    location: selectors.getLocation(state),
   };
 };
 

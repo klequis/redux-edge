@@ -18,13 +18,7 @@ import * as ku from '../../../lib/ke-utils';
 class App extends Component {
   componentWillMount() {
     ku.logFunction('componentWillMount');
-    if (this.props.city) {
-      ku.log('I have a city');
-    } else {
-      ku.log('I do not have a city');
-      this.props.updateCity(this.props.requestReadCity());
-      this.props.requestReadWeather(this.props.city); // this is an action that calls api
-    }
+    this.props.requestReadWeather(this.props.city); // this is an action that calls api
   }
 
   render() {
@@ -33,9 +27,9 @@ class App extends Component {
     switch (readWeatherRequest.status) {
       case 'success':
         return (
-          <div style={style.wrapper}>
+          <div>
             <h1>Success</h1>
-            <div style={style.row}>
+            <div>
               <Nav />
               <CurrentConditions />
               <Forecast />

@@ -32,7 +32,7 @@ export const markRequestFailed = (reason, key) => ({
 });
 
 export const createRequestThunk = ({ request, key, start = [], success = [], failure = [] }) => {
-  const log = true;
+  const log = false;
   const o = {
     request,
     key,

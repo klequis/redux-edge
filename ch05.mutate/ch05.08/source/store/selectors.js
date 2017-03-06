@@ -1,7 +1,11 @@
 import * as ku from '../../lib/ke-utils';
 
-export const getDays = (state) =>
-  state.weather.days;
+export const getDays = (state) => {
+  ku.log('selectors.getDays.state', state);
+  const o = state.weather.days;
+  ku.log('selectors.getDays.o', o);
+  return o;
+};
 
 export const getBranding = (state) =>
   state.weather.branding;

@@ -5,7 +5,7 @@ const logFun = false;
 const logLog = false;
 import data from './localData';
 
-const weatherURL = 'http://api.wunderground.com/api/8e038883d8fbbe15/forecast/geolookup/conditions/q/CA/';
+const weatherURLRoot = 'http://api.wunderground.com/api/8e038883d8fbbe15/forecast/geolookup/conditions/q/CA/';
 // San_Francisco.json';
 
 const hardURL = 'http://api.wunderground.com/api/8e038883d8fbbe15/forecast/geolookup/conditions/q/CA/San_Francisco.json';
@@ -24,7 +24,7 @@ export const fetchJson = (url, options = {}) => (
   .then((res) => res.json())
 );
 
-/*
+/* Use local data from ./localData.js
 export default {
   days: {
     readList() {
@@ -49,27 +49,40 @@ export default {
     weather(city) {
       logFun && ku.logFunction('readList');
       ku.log("city", city);
-      const url = `http://api.wunderground.com/api/8e038883d8fbbe15/forecast/geolookup/conditions/q/CA/${city}.json`;
-      ku.log('url', url);
-      return fetchJson(url)
-        .then((data) => {
-          const o = formatWeather(data);
 
-          logLog && ku.log('readList.returned-data', o, 'red');
-          return o;
-        });
+      if (city) {
+        return getWeather(city);
+      } else {
+        return getIpInfoCity()
+          .then((ipcity) =>{
+            ku.log('ipcity', ipcity);
+            const o = getWeather(ipcity);
+            ku.log('get.weather.o', o);
+            return o;
+          })
+      }
+
     },
-    city() {
-      const url = 'http://ipinfo.io/json';
-      return fetchJson(url)
-        .then((data) => {
-          const o = data.city;
-          ku.log('o', o);
-          return o;
-        })
-    }
   },
 };
+
+function getWeather(city) {
+  const url = `${weatherURLRoot}${city}.json`;
+  ku.log('getWeather.url', url);
+  return fetchJson(url)
+    .then((data) => {
+      const o = formatWeather(data);
+      logLog && ku.log('readList.returned-data', o, 'red');
+      return o;
+    });
+}
+
+function getIpInfoCity() {
+  return fetchJson('https://ipinfo.io/json')
+    .then((data) => {
+      return data.city;
+    })
+}
 
 function formatWeather(data) {
   const o = {
