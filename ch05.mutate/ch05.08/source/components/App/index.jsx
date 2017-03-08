@@ -1,18 +1,16 @@
-// npm modules
 import React from 'react';
 import { Component } from 'react';
 import { PropTypes } from 'react';
 import { connect } from 'react-redux';
-// store
 import * as actionCreators from '../../store/actions';
 import * as selectors from '../../store/selectors';
-// components
-import Nav from '../Nav';
+import UserInput from '../UserInput';
+import Branding from '../Branding';
+import Title from '../Title';
 import CurrentConditions from '../CurrentConditions';
 import Forecast from '../Forecast';
-// style
+import Location from '../Location';
 import * as style from './style';
-// utils
 import * as ku from '../../../lib/ke-utils';
 
 class App extends Component {
@@ -28,12 +26,23 @@ class App extends Component {
       case 'success':
         return (
           <div>
-            <h1>Success</h1>
+            <div style={style.row}>
+              <Branding />
+              <UserInput />
+            </div>
             <div>
-              <Nav />
+              <Title style={style.green}/>
+            </div>
+            <div>
               <CurrentConditions />
+            </div>
+            <div>
               <Forecast />
             </div>
+            <div>
+              <Location />
+            </div>
+
           </div>
         );
       case 'failure':
@@ -61,12 +70,6 @@ App.propTypes = {
   requestReadWeather: PropTypes.func.isRequired,
   readWeatherRequest: PropTypes.object.isRequired,
 };
-
-/* works
-const mapStateToProps = (state) => ({
-  readWeatherRequest: selectors.getRequest(state, 'readWeather'),
-});
-*/
 
 const mapStateToProps = (state) => {
   // const city = selectors.getCity(state);

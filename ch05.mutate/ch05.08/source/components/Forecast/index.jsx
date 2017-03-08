@@ -14,10 +14,7 @@ const Forecast = ({ days }) => (
       : days.map((d) => (
         <Day
           key={d.date.epoch}
-          conditions={d.conditions}
-          highFahrenheit={d.high.fahrenheit}
-          lowFahrengeit={d.low.fahrenheit}
-          iconUrl={d.icon_url}
+          day={d}
           />
       ))
     }

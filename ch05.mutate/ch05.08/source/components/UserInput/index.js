@@ -5,15 +5,14 @@ import * as actionCreators from '../../store/actions';
 import * as selectors from '../../store/selectors';
 import * as style from './style';
 
-const Nav = ({ city, updateCity, requestReadWeather }) => {
+const UserInput = ({ city, updateCity, requestReadWeather }) => {
   return (
     <div style={style.wrapper}>
-      <p>city: {city}</p>
       <input
         placeholder="enter city"
         onChange={(event) => updateCity(event.target.value)}
         />
-      <button
+      <button style={style.button}
         onClick={() => requestReadWeather(city)}
         >
         Go
@@ -29,4 +28,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, actionCreators)(Nav);
+export default connect(mapStateToProps, actionCreators)(UserInput);

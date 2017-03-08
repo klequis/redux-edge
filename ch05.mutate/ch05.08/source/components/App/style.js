@@ -1,13 +1,15 @@
 export const wrapper = {
   display: 'flex',
-  flexDirection: 'column',
-  height: '100vh',
+  flexDirection: 'row',
+  alignItems: 'center',
 };
 
 export const row = {
   display: 'flex',
   flexGrow: 1,
+  alignContent: 'center',
 };
+// alignItems: 'stretch', did nothing
 
 export const notice = {
   color: '#d8d8d8',
@@ -17,3 +19,29 @@ export const notice = {
   backgroundColor: '#fafafa',
   height: '100vh',
 };
+
+export const green = {
+  backgroundColor: 'green',
+}
+
+export const headingContainer = {
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+}
+
+export const titleContainer = {
+
+}
+
+export const currentConditionsContainer = {
+
+}
+
+export const forecastContainer = {
+
+}
+
+export const locationContainer = {
+
+}

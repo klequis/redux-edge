@@ -7,12 +7,41 @@ import * as selectors from '../../store/selectors';
 import * as style from './style';
 
 const CurrentConditions = ({ currentObservation, location }) => {
+  const metric = true;
+  const temp = metric
+    ? `${currentObservation.temp_c} C`
+    : `${currentObservation.temp_f} F`;
+  const dewpoint = metric
+    ? `${currentObservation.dewpoint_c} C`
+    : `${currentObservation.dewpoint_f} F`;
+  const feelslike = metric
+    ? `${currentObservation.feelslike_c} C`
+    : `${currentObservation.feelslike_f} F`;
+  const pressure = metric
+    ? `${currentObservation.pressure_mp} mp`
+    : `${currentObservation.feelslike_in} in`;
+  const windspeed = metric
+    ? `${currentObservation.wind_kph} kph`
+    : `${currentObservation.wind_mph} mph`;
+  const windgust = metric
+    ? `${currentObservation.wind_gust_kpy} kph`
+    : `${currentObservation.wind_gust_mph}  mph`;
+  const windchill = metric
+    ? `${currentObservation.windchill_c} C`
+    : `${currentObservation.windchill_f} F`;
   return (
     <div>
-      <h1>Current Conditions</h1>
-      <p>city: {location.city}</p>
-      <p>temp_c: {currentObservation.temp_c}</p>
-      <p>temp_f: {currentObservation.temp_f}</p>
+      <img src={currentObservation.icon_url} />
+      <p>{currentObservation.weather}</p>
+      <p>{temp}</p>
+      <p>Dewpoint {dewpoint}</p>
+      <p>Feels like {feelslike}</p>
+      <p>Pressure {pressure} {currentObservation.pressure_trend}</p>
+      <p>Relative humidity: {currentObservation.relative_humidity}</p>
+      <p>UV: {currentObservation.uv}</p>
+      <p>Wind {currentObservation.wind_dir} at {windspeed}</p>
+      <p>Gusts {windgust}</p>
+      <p>Windchill {windchill}</p>
     </div>
   );
 };
