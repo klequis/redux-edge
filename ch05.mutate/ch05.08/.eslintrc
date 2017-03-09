@@ -60,7 +60,7 @@
     "no-constant-condition": "warn",
     "no-fallthrough": "warn",
     "no-labels": "warn",
-    "no-multiple-empty-lines": ["warn", {"max": 1}],
+    "no-multiple-empty-lines": ["warn", {"max": 5}],
     "no-trailing-spaces": "warn",
     "no-underscore-dangle": "warn",
     "no-unneeded-ternary": "warn",

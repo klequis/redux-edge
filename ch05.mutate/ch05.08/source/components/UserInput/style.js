@@ -8,6 +8,11 @@ export const container_item = {
 };
 // textAlign: 'center', did nothing
 
+export const userInput = {
+  flexGrow: 2,
+  display: 'flex',
+};
+
 export const item = {
   flexGrow: 1,
   backgroundColor: 'lightblue',
