@@ -1,47 +1,52 @@
 export const wrapper = {
   display: 'flex',
   flexDirection: 'row',
-  alignItems: 'center',
 };
+// alignItems: 'center',
 
-export const row = {
+export const head = {
   display: 'flex',
-  flexGrow: 1,
-  alignContent: 'center',
-};
-// alignItems: 'stretch', did nothing
-
-export const notice = {
-  color: '#d8d8d8',
-  textAlign: 'center',
-  fontSize: '1.4rem',
-  padding: '5rem 2rem 2rem',
-  backgroundColor: '#fafafa',
-  height: '100vh',
 };
 
 export const green = {
+  color: 'green',
+  border: '3px solid green',
   backgroundColor: 'green',
-}
+  padding: '3px',
+};
+// alignItems: 'stretch', did nothing
+// alignContent: 'center',
+
+export const branding = {
+  flexGrow: 1,
+};
+
+export const userInput = {
+  flexGrow: 2,
+};
+
+export const title = {
+  display: 'flex',
+};
 
 export const headingContainer = {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-}
+};
 
 export const titleContainer = {
 
-}
+};
 
 export const currentConditionsContainer = {
 
-}
+};
 
 export const forecastContainer = {
 
-}
+};
 
 export const locationContainer = {
 
-}
+};

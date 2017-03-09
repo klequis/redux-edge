@@ -4,15 +4,26 @@ import * as style from './style';
 
 const Day = (props) => {
   const metric = true;
+  const high = metric
+    ? `${props.day.high.celsius}`
+    : `${props.day.high.fahrenheit}`;
+  const low = metric
+    ? `${props.day.low.celsius}`
+    : `${props.day.low.fahrenheit}`;
+  const wind = metric
+    ? `${props.day.avewind.kph} kph`
+    : `${props.day.avewind.mph} mph`;
+
+
   return (
     <div>
       <p>{props.day.date.monthname_short} {props.day.date.day}</p>
-      <img src={props.day.icon_url}></img><br></br>
-      {props.day.conditions}<br></br>
-    <p>High: {metric ? props.day.high.celsius : props.day.high.fahrenheit}  </p>
-    <p>Low: {metric ? props.day.low.celsius : props.day.low.fahrenheit}</p>
-    <p>Humidity: {props.day.avehumidity}</p>
-    <p>Wind: {metric ? props.day.avewind.kph : props.day.avewind.mph} {metric ? "kph" : "mph"}</p>
+      <p><img src={props.day.icon_url}></img></p>
+      <p>{props.day.conditions}</p>
+      <p>High: {high}</p>
+      <p>Low: {low}</p>
+      <p>Humidity: {props.day.avehumidity}</p>
+      <p>Wind: {wind}</p>
     </div>
   );
 };

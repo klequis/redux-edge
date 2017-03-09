@@ -7,12 +7,14 @@ import * as style from './style';
 
 const UserInput = ({ city, updateCity, requestReadWeather }) => {
   return (
-    <div style={style.wrapper}>
+    <div style={style.container_item}>
       <input
+        style={style.item}
         placeholder="enter city"
         onChange={(event) => updateCity(event.target.value)}
         />
-      <button style={style.button}
+      <button
+        style={style.item}
         onClick={() => requestReadWeather(city)}
         >
         Go

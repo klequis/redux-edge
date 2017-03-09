@@ -8,9 +8,7 @@ import * as style from './style';
 
 const Branding = ({ branding }) => {
   return (
-    <div style={style.wrapper}>
-      <a href={branding.link}><img src={branding.url}></img></a>
-    </div>
+      <a style={style.item} href={branding.link}><img src={branding.url}></img></a>
   );
 };
 

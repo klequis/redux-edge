@@ -1,7 +1,5 @@
 // Branding
-export const wrapper = {
+export const item = {
   flexGrow: 1,
-  textAlign: 'center',
-  backgroundColor: 'blue',
-  alignItems: 'stretch',
+  backgroundColor: 'lightblue',
 };

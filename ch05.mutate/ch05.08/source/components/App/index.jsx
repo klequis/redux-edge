@@ -25,13 +25,15 @@ class App extends Component {
     switch (readWeatherRequest.status) {
       case 'success':
         return (
-          <div>
-            <div style={style.row}>
+          <div className="page">
+            <div className="header" style={style.head}>
               <Branding />
-              <UserInput />
+              <div style={style.userInput}>
+                <UserInput />
+              </div>
             </div>
-            <div>
-              <Title style={style.green}/>
+            <div style={style.title}>
+              <Title />
             </div>
             <div>
               <CurrentConditions />
@@ -42,7 +44,6 @@ class App extends Component {
             <div>
               <Location />
             </div>
-
           </div>
         );
       case 'failure':
@@ -79,6 +80,5 @@ const mapStateToProps = (state) => {
     readCityRequest: selectors.getRequest(state, 'readCity'),
   };
 };
-
 
 export default connect(mapStateToProps, actionCreators)(App);
