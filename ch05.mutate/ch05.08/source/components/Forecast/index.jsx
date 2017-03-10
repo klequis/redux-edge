@@ -7,8 +7,7 @@ import Day from '../Day';
 import * as style from './style';
 
 const Forecast = ({ days }) => (
-  <div>
-    <h1>Forecast</h1>
+  <div style={style.forecast}>
     {(days.length === 0)
       ? <div>No forecast available</div>
       : days.map((d) => (

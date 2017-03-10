@@ -8,12 +8,20 @@ import * as style from './style';
 
 const Location = ({ location }) => {
   return (
-    <div>
-      <h2>Location</h2>
-      <p>{location.full}, {location.country}</p>
-      <p>elevation: {location.elevation}</p>
-      <p>latitude: {location.latitude}</p>
-      <p>longitude: {location.longitude}</p>
+    <div id="footer" style={style.footer}>
+      <div id="location" style={style.location}>
+        <h4>Location Data for {location.full}, {location.country}</h4>
+        <div style={style.dataItems}>
+          <p style={style.dataItem}><strong>Elevation:</strong> {location.elevation}</p>
+          <p style={style.dataItem}><strong>latitude:</strong> {location.latitude}</p>
+          <p style={style.dataItem}><strong>longitude:</strong> {location.longitude}</p>
+        </div>
+      </div>
+      <div style={style.klequisBrand}>
+        <div>
+          <img style={style.klequisLogo} src="http://klequis.com/images/weather/klequis-logo.png"></img>
+        </div>
+      </div>
     </div>
   );
 };

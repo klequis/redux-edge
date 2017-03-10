@@ -16,14 +16,13 @@ const Day = (props) => {
 
 
   return (
-    <div>
-      <p>{props.day.date.monthname_short} {props.day.date.day}</p>
+    <div style={style.day}>
+      <p><strong>{props.day.date.monthname_short} {props.day.date.day}</strong></p>
       <p><img src={props.day.icon_url}></img></p>
-      <p>{props.day.conditions}</p>
-      <p>High: {high}</p>
-      <p>Low: {low}</p>
-      <p>Humidity: {props.day.avehumidity}</p>
-      <p>Wind: {wind}</p>
+        <p>{high} / {low}</p>
+      <p style={style.dataPoint}>{props.day.conditions}</p>
+      <p style={style.dataPoint}>Humidity: {props.day.avehumidity}</p>
+      <p style={style.dataPoint}>Wind: {wind}</p>
     </div>
   );
 };

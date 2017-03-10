@@ -9,8 +9,7 @@ export const page = {
 export const head = {
   display: 'flex',
   backgroundColor: 'black',
-  paddingTop: 5,
-  paddingBottom: 5,
+  padding: 10,
 };
 
 export const title = {

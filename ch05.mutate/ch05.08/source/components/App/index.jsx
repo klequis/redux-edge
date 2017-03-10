@@ -39,9 +39,7 @@ class App extends Component {
             <div>
               <Forecast />
             </div>
-            <div>
-              <Location />
-            </div>
+            <Location />
           </div>
         );
       case 'failure':
