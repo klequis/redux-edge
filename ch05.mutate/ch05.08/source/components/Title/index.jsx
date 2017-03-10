@@ -8,9 +8,9 @@ import * as style from './style';
 
 const Title = ({ currentObservation, location }) => {
   return (
-    <div>
-      <p>city: {location.city}, {location.state} {location.zip}</p>
-      <p>{currentObservation.observation_time}</p>
+    <div style={style.title}>
+      <p style={style.city}>{location.city}, {location.state} {location.zip}</p>
+      <p style={style.date}>{currentObservation.observation_time}</p>
     </div>
   );
 };

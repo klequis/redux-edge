@@ -7,8 +7,9 @@ import * as selectors from '../../store/selectors';
 import * as style from './style';
 
 const Branding = ({ branding }) => {
+  const logoURL = "http://klequis.com/images/weather/wunderground.logo.png";
   return (
-      <a style={style.item} href={branding.link}><img src={branding.url}></img></a>
+    <a style={style.item} href={branding.link}><img style={style.logo} src={logoURL}></img></a>
   );
 };
 

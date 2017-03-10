@@ -25,7 +25,7 @@ class App extends Component {
     switch (readWeatherRequest.status) {
       case 'success':
         return (
-          <div>
+          <div style={style.page}>
             <div className="header" style={style.head}>
               <Branding />
               <UserInput />

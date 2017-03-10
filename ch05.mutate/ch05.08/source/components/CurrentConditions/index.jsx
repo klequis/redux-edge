@@ -30,18 +30,24 @@ const CurrentConditions = ({ currentObservation, location }) => {
     ? `${currentObservation.windchill_c} C`
     : `${currentObservation.windchill_f} F`;
   return (
-    <div>
-      <img src={currentObservation.icon_url} />
-      <p>{currentObservation.weather}</p>
-      <p>{temp}</p>
-      <p>Dewpoint {dewpoint}</p>
-      <p>Feels like {feelslike}</p>
-      <p>Pressure {pressure} {currentObservation.pressure_trend}</p>
-      <p>Relative humidity: {currentObservation.relative_humidity}</p>
-      <p>UV: {currentObservation.uv}</p>
-      <p>Wind {currentObservation.wind_dir} at {windspeed}</p>
-      <p>Gusts {windgust}</p>
-      <p>Windchill {windchill}</p>
+    <div style={style.container}>
+      <div style={style.item}>
+        <img src={currentObservation.icon_url} />
+        <p>{currentObservation.weather}</p>
+        <p>{temp}</p>
+      </div>
+      <div style={style.item}>
+        <p>Dewpoint {dewpoint}</p>
+        <p>Feels like {feelslike}</p>
+        <p>Pressure {pressure} {currentObservation.pressure_trend}</p>
+        <p>Relative humidity: {currentObservation.relative_humidity}</p>
+      </div>
+      <div style={style.item}>
+        <p>UV: {currentObservation.uv}</p>
+        <p>Wind {currentObservation.wind_dir} at {windspeed}</p>
+        <p>Gusts {windgust}</p>
+        <p>Windchill {windchill}</p>
+      </div>
     </div>
   );
 };

@@ -1,43 +1,24 @@
-export const wrapper = {
-  display: 'flex',
-  flexDirection: 'row',
+
+export const page = {
+  marginLeft: '10%',
+  marginRight: '10%',
+  maxWidth: 1024,
 };
 // alignItems: 'center',
 
 export const head = {
   display: 'flex',
+  backgroundColor: 'black',
+  paddingTop: 5,
+  paddingBottom: 5,
 };
 
 export const title = {
   display: 'flex',
   flexDirection: 'column',
+  marginTop: 20,
 };
 
-
-// *** ??? ***
-export const branding = {
-  flexGrow: 1,
-};
-
-
-export const headingContainer = {
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-};
-
-export const titleContainer = {
-
-};
-
-export const currentConditionsContainer = {
-
-};
-
-export const forecastContainer = {
-
-};
-
-export const locationContainer = {
-
+export const notice = {
+  backgroundColor: 'red',
 };
