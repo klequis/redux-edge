@@ -30,7 +30,7 @@ const CurrentConditions = ({ currentObservation, location }) => {
     ? `${currentObservation.windchill_c} C`
     : `${currentObservation.windchill_f} F`;
   return (
-    <div style={style.container}>
+    <div id="current-conditions" style={style.container}>
       <div style={style.item}>
         <img src={currentObservation.icon_url} />
         <p>{currentObservation.weather}</p>

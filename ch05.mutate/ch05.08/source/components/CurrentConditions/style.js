@@ -1,4 +1,4 @@
-export const container = {
+export const CurrentConditions = {
   display: 'flex',
   justifyContent: 'space-around',
   marginLeft: 'auto',

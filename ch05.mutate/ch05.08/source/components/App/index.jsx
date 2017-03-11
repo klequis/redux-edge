@@ -9,7 +9,7 @@ import Branding from '../Branding';
 import Title from '../Title';
 import CurrentConditions from '../CurrentConditions';
 import Forecast from '../Forecast';
-import Location from '../Location';
+import Footer from '../Footer';
 import * as style from './style';
 import * as ku from '../../../lib/ke-utils';
 
@@ -26,20 +26,15 @@ class App extends Component {
       case 'success':
         return (
           <div style={style.page}>
-            <div className="header" style={style.head}>
+
+            <header style={style.head}>
               <Branding />
               <UserInput />
-            </div>
-            <div style={style.title}>
-              <Title />
-            </div>
-            <div>
-              <CurrentConditions />
-            </div>
-            <div>
-              <Forecast />
-            </div>
-            <Location />
+            </header>
+            <Title />
+            <CurrentConditions />
+            <Forecast />
+            <Footer />
           </div>
         );
       case 'failure':

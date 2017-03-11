@@ -1,7 +1,7 @@
 export const footer = {
   display: 'flex',
   flexDirection: 'row',
-
+  justifyContent: 'center',
   backgroundColor: 'black',
   marginTop: 20,
   padding: 10,
@@ -23,27 +23,10 @@ export const dataItems = {
   justifyContent: 'center',
   fontSize: 12,
   marginTop: 10,
+
 };
 
 export const dataItem = {
-  flexGrow: 1,
-};
-
-export const klequisBrand = {
-  display: 'flex',
-  flexDirection: 'column',
-  flexGrow: 0,
-  justifyContent: 'center',
-};
-
-export const klequisLogo = {
-  display: 'block',
-  margin: 'auto',
-  maxHeight: 40,
-};
-
-export const klequisLink = {
-  color: 'white',
-  fontSize: 10,
-  textAlign: 'center',
+  padding: '40 40 40 40',
+  width: 100,
 };
