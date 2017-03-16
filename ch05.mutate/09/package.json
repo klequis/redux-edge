@@ -6,7 +6,7 @@
     "lint": "eslint 'source/**'",
     "test": "tape --require babel-register source/**/*.test.js",
     "prestart": "webpack",
-    "start": "node index"
+    "start": "webpack-dev-server --inline && node index"
   },
   "author": "Artur Muller <me@arturmuller.com> (http://arturmuller.com)",
   "license": "ISC",
@@ -37,6 +37,7 @@
     "redux-logger": "^2.0.3",
     "redux-thunk": "^2.1.0",
     "uuid": "^2.0.2",
-    "webpack": "^1.12.2"
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.14.1"
   }
 }

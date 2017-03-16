@@ -4,8 +4,7 @@ import { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions';
 import * as selectors from '../../store/selectors';
-import UserInput from '../UserInput';
-import Branding from '../Branding';
+import Header from '../Header';
 import Title from '../Title';
 import CurrentConditions from '../CurrentConditions';
 import Forecast from '../Forecast';
@@ -13,7 +12,7 @@ import Footer from '../Footer';
 import * as style from './style';
 import * as ku from '../../../lib/ke-utils';
 
-class App extends Component {
+class Page extends Component {
   componentWillMount() {
     ku.logFunction('componentWillMount');
     this.props.requestReadWeather(this.props.city); // this is an action that calls api
@@ -26,11 +25,7 @@ class App extends Component {
       case 'success':
         return (
           <div style={style.page}>
-
-            <header style={style.head}>
-              <Branding />
-              <UserInput />
-            </header>
+            <Header />
             <Title />
             <CurrentConditions />
             <Forecast />
@@ -58,7 +53,7 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
+Page.propTypes = {
   requestReadWeather: PropTypes.func.isRequired,
   readWeatherRequest: PropTypes.object.isRequired,
 };
@@ -72,4 +67,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, actionCreators)(App);
+export default connect(mapStateToProps, actionCreators)(Page);

@@ -1,5 +1,8 @@
 
 export const page = {
+  display: 'flex',
+  flexDirection: 'column',
+  flexGrow: 1,
   marginLeft: '10%',
   marginRight: '10%',
   maxWidth: 1024,
