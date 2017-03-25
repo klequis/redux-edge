@@ -2,17 +2,22 @@
   "name": "dare-notes-app",
   "version": "1.0.0",
   "main": "index.js",
+  "junk": {
+    "start": "node index"
+  },
   "scripts": {
     "lint": "eslint 'source/**'",
     "test": "tape --require babel-register source/**/*.test.js",
     "prestart": "webpack",
-    "start": "node index"
+    "start": "webpack-dev-server --hot",
+    "server": "babel-watch server"
   },
   "author": "Artur Muller <me@arturmuller.com> (http://arturmuller.com)",
   "license": "ISC",
   "devDependencies": {
     "babel-eslint": "^6.0.0",
     "babel-register": "^6.9.0",
+    "babel-watch": "^2.0.6",
     "eslint": "^2.12.0",
     "eslint-plugin-react": "^4.3.0",
     "fetch-mock": "^4.5.4",
